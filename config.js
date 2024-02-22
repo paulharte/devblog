@@ -1,17 +1,17 @@
 module.exports = {
-  title: 'Dev Blog', // Required
-  author: 'Ryan Fitzgerald', // Required
-  description: 'Full-stack Web Developer',
-  primaryColor: '#3498db', // Required
+  title: "Paul's Pet Blog", // Required
+  author: 'Paul Harte', // Required
+  description: 'Dev lead / Manager',
+  primaryColor: '#606062', // Required
   showHeaderImage: true,
   showShareButtons: true,
   postsPerPage: 5, // Required
   social: {
-    website: 'https://ryanfitzgerald.ca',
-    github: 'https://github.com/ryanfitzgerald',
-    twitter: 'https://twitter.com/ryanafitzgerald',
-    linkedin: 'https://ca.linkedin.com/in/ryanafitzgerald',
+    website: 'http://paulspetprojects.net',
+    github: 'https://github.com/paulspetproject',
+    twitter: 'https://twitter.com/paulspetproject',
+    linkedin: 'https://www.linkedin.com/in/paul-harte-78032261/',
   },
   pathPrefix: '/devblog',
-  siteUrl: 'https://ryanfitzgerald.github.io/devblog/',
+  siteUrl: 'http://paulspetprojects.net',
 };
