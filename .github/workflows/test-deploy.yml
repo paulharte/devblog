@@ -1,0 +1,64 @@
+name: Node.js CI CD
+
+on:
+  push:
+    branches: [master, main, develop, dev/*]
+  pull_request:
+    branches: [master, main, develop, dev/*]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [21.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run build
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: "eu-west-1"
+      SOURCE_DIR: "public"
+    strategy:
+      matrix:
+        node-version: [21.x]
+    if: (github.ref == 'refs/heads/master' && github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Dependencies
+        run: npm install
+      - name: Build UAT Application
+        if: github.ref == 'refs/heads/develop'
+        run: npm run build
+      - uses: jakejarvis/s3-sync-action@master
+        name: Upload App to UAT S3 Bucket
+        if: github.ref == 'refs/heads/develop'
+        with:
+          args: --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: uat.paulspetprojects.net
+      - name: Build Prod Application
+        if: github.ref == 'refs/heads/master'
+        run: npm run build
+      - uses: jakejarvis/s3-sync-action@master
+        name: Upload App to Prod S3 Bucket
+        if: github.ref == 'refs/heads/master'
+        with:
+          args: --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: paulspetprojects.net
