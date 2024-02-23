@@ -1,7 +1,7 @@
 module.exports = {
   title: "Paul's Pet Blog", // Required
   author: 'Paul Harte', // Required
-  description: 'Dev lead / Manager',
+  description: 'Dev lead / Python lover / SQL nerd / Machine learning dabbler',
   primaryColor: '#606062', // Required
   showHeaderImage: true,
   showShareButtons: true,
