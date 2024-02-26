@@ -63,3 +63,9 @@ jobs:
           args: --follow-symlinks --delete
         env:
           AWS_S3_BUCKET: paulspetprojects.net
+      - uses: chetan/invalidate-cloudfront-action@master
+        name: Prod CloudFront Cache Invalidation
+        if: github.ref == 'refs/heads/master'
+        env:
+            DISTRIBUTION: E26L5ITBVQRW26
+            PATHS: "/*"
