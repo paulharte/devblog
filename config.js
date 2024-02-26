@@ -8,10 +8,10 @@ module.exports = {
   postsPerPage: 5, // Required
   social: {
     website: 'http://paulspetprojects.net',
-    github: 'https://github.com/paulspetproject',
+    github: 'https://github.com/paulharte',
     twitter: 'https://twitter.com/paulspetproject',
     linkedin: 'https://www.linkedin.com/in/paul-harte-78032261/',
   },
   pathPrefix: '/devblog',
-  siteUrl: 'http://paulspetprojects.net',
+  siteUrl: 'https://www.paulspetprojects.net',
 };
