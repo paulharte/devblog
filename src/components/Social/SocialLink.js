@@ -17,6 +17,11 @@ const SocialLink = styled.a`
     vertical-align: middle;
     width: 20px;
   }
+  
+  img {
+    vertical-align: middle;
+    margin-right: 5px;
+  }
 
   &:hover {
     border-color: #3e465b;

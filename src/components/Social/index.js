@@ -84,7 +84,7 @@ function Social({ website, twitter, github, linkedin }) {
       )}
       {(
         <SocialLink href="https://autobrew.paulspetprojects.net" target="_blank" rel="noopener">
-            <img src={imgSrc} alt="Autobrew" style={{verticalAlign: "middle", marginRight: "5px"}}/>
+            <img src={imgSrc} alt="Autobrew"/>
           Autobrew
         </SocialLink>
       )}
