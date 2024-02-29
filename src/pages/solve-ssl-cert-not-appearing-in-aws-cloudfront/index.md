@@ -1,6 +1,7 @@
 ---
-title: How to solve it when your SSL certificate is not appearing in AWS Cloudfront
+title: How to fix it when your SSL certificate is not appearing in AWS Cloudfront
 date: "2024-02-29"
+featuredImage: './cloudfront.png'
 ---
 
 Cloudfront is an easy to use CDN for basic use cases, with blazing fast performance in most geographical areas, but this gotcha can be very frustrating. HTTPS is an almost essential requirement these days, as your site will have difficulty being listed on google without this, and you will need a SSL cert to configure HTTPS.
