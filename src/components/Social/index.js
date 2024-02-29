@@ -2,6 +2,7 @@ import React from 'react';
 
 import Wrapper from './Wrapper';
 import SocialLink from './SocialLink';
+import imgSrc from './beer-outline.svg';
 
 function Social({ website, twitter, github, linkedin }) {
   return (
@@ -79,6 +80,12 @@ function Social({ website, twitter, github, linkedin }) {
             <circle cx="4" cy="4" r="2" />
           </svg>
           LinkedIn
+        </SocialLink>
+      )}
+      {(
+        <SocialLink href="https://autobrew.paulspetprojects.net" target="_blank" rel="noopener">
+            <img src={imgSrc} alt="Autobrew" style={{verticalAlign: "middle", marginRight: "5px"}}/>
+          Autobrew
         </SocialLink>
       )}
     </Wrapper>
