@@ -7,7 +7,7 @@ module.exports = {
   showShareButtons: true,
   postsPerPage: 5, // Required
   social: {
-    website: 'http://paulspetprojects.net',
+    website: 'http://www.paulspetprojects.net',
     github: 'https://github.com/paulharte',
     twitter: 'https://twitter.com/paulspetproject',
     linkedin: 'https://www.linkedin.com/in/paul-harte-78032261/',
