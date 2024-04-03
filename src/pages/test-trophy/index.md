@@ -6,9 +6,9 @@ featuredImage: './rip-pyramid.png'
 
 For years the concept of the testing pyramid has reigned supreme: the idea that the number of tests should be inversely proportional to the breath of their scope. In short: lots of unit tests, very few end to end tests.
 
-This was first proposed by Mike Cohen in "Succeeding with Agile", but [really popularised by software demigod Martin Fowler](https://martinfowler.com/bliki/TestPyramid.html).
+This was first proposed by Mike Cohen in "Succeeding with Agile", but [really popularized by software demigod Martin Fowler](https://martinfowler.com/bliki/TestPyramid.html).
 
-In recent times there has been a shift in thinking here, and one that I have jumped on board with for both front and backend development.
+In recent times there has been a shift in thinking here, and one that I have adopted for both front and backend development.
 
 <!-- end -->
 
@@ -27,9 +27,9 @@ This philosophy has been widely adopted, and has most likely saved thousands of 
 
 While sticking strictly to the test pyramid approach will achieve its main goals of encouraging you to do more of your testing in the less brittle and lower maintenance parts of your testing stack, there has been some developments that have changed things, namely docker.
 
-Docker (and other containerisation solutions) makes it easy and efficient to spin up a canned environment that consists of multiple pieces of infra, for example a app server, a db and a message queue. This lowers the cost and time for tests in the middle part of the pyramid, while still making it easy for them to be deterministic (and reliable), as you are starting with a clean env each time. There are also some tools for frontend development that have emerged that facilitate wider scope testing there also (more on that in another blog).
+Docker (and other containerisation solutions) makes it easy and efficient to spin up a canned environment that consists of multiple pieces of infra, for example a app server, a db and a message queue which together constitute a service or microservice. This lowers the cost and time for tests in the middle part of the pyramid, while still making it easy for them to be deterministic (and reliable), as you are starting with a clean env each time. There are also some tools for frontend development that have emerged that facilitate wider scope testing there also (more on that in another blog).
 
-The test pyramid also fails to acknowledge that there can be some serious pain in getting high levels of test coverage in codebases simply using a unit test approach (anyone who has tested code based a DB ORM such as SqlAlchemy or Hibernate will know about this). There are also high levels of pain to be experienced in frontend codebases with mocking of REST requests, etc. Of course, people build up extensive mock libraries and other coping methods, but could this code be tested in a better way?
+The test pyramid also fails to acknowledge that there can be some serious pain in getting high levels of test coverage in codebases simply using a unit test approach (anyone who has tested code based a DB ORM such as SqlAlchemy or Hibernate will know about this). There are also high levels of pain to be experienced in frontend projects with mocking of REST requests, etc. Of course, people build up extensive mock libraries and other coping methods, but could this code be tested in a better way?
 
 ## Introducing the Testing Trophy
 
@@ -39,9 +39,12 @@ The difference here is subtle: unit tests are still great, and useful, but integ
 
 ![The test trophy - Kent C Dodds](./trophy.jpeg)
 
+You can note here that end to end tests (typically involving full scale environments with live versions of every system) are still in the minority. My team typically takes the policy of using these lightly for happy-path testing only, with everything else covered at a lower level
+
 ## My experience
 
-Reading Kent's blog post was a very affirmative experience for me. In my backend development I have been unconsciously drifting towards a practice where I am almost always writing integration tests, and mainly using unit tests to get coverage in any areas of special intricacies or dense logic. Unit tests are still unbeatable in these areas for fast feedback, and for driving a ['red-green-refactor' approach, as promoted by Robert C. Martin](https://blog.cleancoder.com/uncle-bob/2014/12/17/TheCyclesOfTDD.html).
+Reading Kent's blog post was a very affirmative experience for me. In my backend development I have been unconsciously drifting towards a practice where I am almost always writing integration tests, and mainly using unit tests to get coverage in any areas of special intricacies or dense logic. Unit tests are still unbeatable in these areas for fast feedback, and for driving a ['red-green-refactor' approach, as promoted by Robert C. Martin](https://blog.cleancoder.com/uncle-bob/2014/12/17/TheCyclesOfTDD.html). 
+An interesting technique that I have yet to explore is a hybrid end-to-end testing setup, as [outlined in the latest Thoughtworks Tech Radar](https://www.thoughtworks.com/radar/techniques/summary/broad-integration-tests). This combines contract testing and test harnesses/stubs to achieve a similar test scope to end to end tests, but with better reliability and reduced data maintenance overheads. Drop me a line on [linkedin](https://www.linkedin.com/in/paul-harte-78032261/) or [twitter](https://twitter.com/paulmharte) if you have done this in a 'real world' project
 
 ## Conclusion
 
