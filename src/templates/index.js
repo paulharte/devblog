@@ -9,6 +9,7 @@ import Card from '../components/Card';
 import Container from '../components/Container';
 import Pagination from '../components/Pagination';
 import Summary from '../components/Summary';
+import imgSrc from '../main.png';
 
 const IndexPage = ({ pageContext }) => {
   const { group, index, pageCount } = pageContext;
@@ -26,6 +27,7 @@ const IndexPage = ({ pageContext }) => {
             content={`${userConfig.title} | ${userConfig.description}`}
           />
           <meta name="author" content={userConfig.author}></meta>
+          <meta name="image" property="og:image" content={`${userConfig.siteUrl}${imgSrc}`}/>
         </Helmet>
         {group.map(({ node }) => (
           <Card key={node.fields.slug}>

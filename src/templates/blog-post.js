@@ -15,6 +15,7 @@ import Container from '../components/Container';
 import FeaturedImage from '../components/FeaturedImage';
 import PageNav from '../components/PageNav';
 import Share from '../components/Share';
+import imgSrc from '../main.png';
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -35,11 +36,12 @@ class BlogPostTemplate extends React.Component {
             htmlAttributes={{ lang: 'en' }}
           >
             <meta
-              name="description"
-              content={`${userConfig.title} | ${userConfig.description}`}
+              name="description" property="og:description"
+              content={post.excerpt}
             />
             <meta name="author" content={userConfig.author}/>
             <meta name="publish_date" property="og:publish_date" content={post.frontmatter.date}/>
+            <meta name="image" property="og:image" content={`${userConfig.siteUrl}${imgSrc}`}/>
           </Helmet>
           <Card>
             <ArticleHeader>
@@ -92,6 +94,7 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
+      excerpt
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
