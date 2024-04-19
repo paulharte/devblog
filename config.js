@@ -14,4 +14,5 @@ module.exports = {
   },
   pathPrefix: '/devblog',
   siteUrl: 'https://www.paulspetprojects.net',
+  siteMaxWidth: '900px'
 };

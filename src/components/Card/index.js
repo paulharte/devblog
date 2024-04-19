@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import userConfig from '../../../config';
 
 const Card = styled.div`
   background: #fff;
@@ -7,7 +8,7 @@ const Card = styled.div`
   margin-bottom: 30px;
   padding: 75px 100px;
 
-  @media only screen and (max-width: 870px) {
+  @media only screen and (max-width: ${userConfig.siteMaxWidth}) {
     border-left: none;
     border-right: none;
     padding: 75px 15px;

@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import styledNormalize from "styled-normalize";
+import userConfig from '../config';
 
 const GlobalStyle = createGlobalStyle`
   ${styledNormalize}
@@ -47,7 +48,7 @@ const GlobalStyle = createGlobalStyle`
     background: rgba(245, 245, 245, 1);
     color: rgb(65, 76, 94);  }
 
-  @media only screen and (max-width: 870px) {
+  @media only screen and (max-width: ${userConfig.siteMaxWidth}) {
     .gatsby-highlight {
       margin: 15px -15px;
 

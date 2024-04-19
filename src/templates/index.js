@@ -25,6 +25,7 @@ const IndexPage = ({ pageContext }) => {
             name="description"
             content={`${userConfig.title} | ${userConfig.description}`}
           />
+          <meta name="author" content={userConfig.author}></meta>
         </Helmet>
         {group.map(({ node }) => (
           <Card key={node.fields.slug}>

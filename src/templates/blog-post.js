@@ -38,6 +38,8 @@ class BlogPostTemplate extends React.Component {
               name="description"
               content={`${userConfig.title} | ${userConfig.description}`}
             />
+            <meta name="author" content={userConfig.author}/>
+            <meta name="publish_date" property="og:publish_date" content={post.frontmatter.date}/>
           </Helmet>
           <Card>
             <ArticleHeader>
