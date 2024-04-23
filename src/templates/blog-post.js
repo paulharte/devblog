@@ -16,6 +16,7 @@ import FeaturedImage from '../components/FeaturedImage';
 import PageNav from '../components/PageNav';
 import Share from '../components/Share';
 import imgSrc from '../main.png';
+import formatDateForMetaData from '../utils/date';
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -27,22 +28,25 @@ class BlogPostTemplate extends React.Component {
     if (typeof window !== `undefined`) {
       url = window.location.href;
     }
-    const publishDate = new Date(post.frontmatter.date)
-    console.log(publishDate);
-    console.log(post.frontmatter.date)
+    const publishDate = formatDateForMetaData(new Date(post.frontmatter.date))
+    const pageTitle = `${post.frontmatter.title} | ${author}`;
     return (
       <Layout>
         <Container>
           <Helmet
-            title={`${post.frontmatter.title} | ${author}`}
+            title={pageTitle}
             htmlAttributes={{ lang: 'en' }}
           >
+            <meta name="title" property="og:title" content={pageTitle}/>
+            <meta property="og:type" content="article" />
             <meta
               name="description" property="og:description"
               content={post.excerpt}
             />
-            <meta name="author" content={userConfig.author}/>
-            <meta name="publish_date" property="og:publish_date" content={publishDate.toISOString()}/>
+            <meta name="author" property="article:author" content={userConfig.author}/>
+            <meta name="publish_date" property="og:publish_date" content={publishDate}/>
+            <meta name="published_time" property="og:published_time" content={publishDate}/>
+            <meta property="article:tag" content='software development'/>
             <meta name="image" property="og:image" content={`${userConfig.siteUrl}${imgSrc}`}/>
           </Helmet>
           <Card>

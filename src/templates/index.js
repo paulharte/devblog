@@ -15,15 +15,17 @@ const IndexPage = ({ pageContext }) => {
   const { group, index, pageCount } = pageContext;
   const previousUrl = index - 1 === 1 ? '' : (index - 1).toString();
   const nextUrl = (index + 1).toString();
+  const pageTitle = `${userConfig.title} | ${userConfig.author}`;
   return (
     <Layout>
       <Container>
         <Helmet
-          title={`${userConfig.title} | ${userConfig.author}`}
+          title={pageTitle}
           htmlAttributes={{ lang: 'en' }}
         >
+          <meta name="title" property="og:title" content={pageTitle}/>
           <meta
-            name="description"
+            name="description" property="og:description"
             content={`${userConfig.title} | ${userConfig.description}`}
           />
           <meta name="author" content={userConfig.author}></meta>
