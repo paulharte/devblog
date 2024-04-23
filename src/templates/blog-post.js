@@ -27,7 +27,9 @@ class BlogPostTemplate extends React.Component {
     if (typeof window !== `undefined`) {
       url = window.location.href;
     }
-
+    const publishDate = new Date(post.frontmatter.date)
+    console.log(publishDate);
+    console.log(post.frontmatter.date)
     return (
       <Layout>
         <Container>
@@ -40,7 +42,7 @@ class BlogPostTemplate extends React.Component {
               content={post.excerpt}
             />
             <meta name="author" content={userConfig.author}/>
-            <meta name="publish_date" property="og:publish_date" content={post.frontmatter.date}/>
+            <meta name="publish_date" property="og:publish_date" content={publishDate.toISOString()}/>
             <meta name="image" property="og:image" content={`${userConfig.siteUrl}${imgSrc}`}/>
           </Helmet>
           <Card>
