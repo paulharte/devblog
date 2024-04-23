@@ -24,6 +24,7 @@ const IndexPage = ({ pageContext }) => {
           htmlAttributes={{ lang: 'en' }}
         >
           <meta name="title" property="og:title" content={pageTitle}/>
+          <meta name="url" property="og:url" content={userConfig.siteUrl}/>
           <meta
             name="description" property="og:description"
             content={`${userConfig.title} | ${userConfig.description}`}
