@@ -16,7 +16,6 @@ import FeaturedImage from '../components/FeaturedImage';
 import PageNav from '../components/PageNav';
 import Share from '../components/Share';
 import imgSrc from '../main.png';
-import formatDateForMetaData from '../utils/date';
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -28,7 +27,8 @@ class BlogPostTemplate extends React.Component {
     if (typeof window !== `undefined`) {
       url = window.location.href;
     }
-    const publishDate = formatDateForMetaData(new Date(post.frontmatter.date))
+    const publishDate = new Date(post.frontmatter.date);
+    const publishDateUtc = publishDate.toUTCString();
     const pageTitle = `${post.frontmatter.title} | ${author}`;
     return (
       <Layout>
@@ -44,8 +44,8 @@ class BlogPostTemplate extends React.Component {
               content={post.excerpt}
             />
             <meta name="author" property="article:author" content={userConfig.author}/>
-            <meta name="publish_date" property="og:publish_date" content={publishDate}/>
-            <meta name="published_time" property="og:published_time" content={publishDate}/>
+            <meta name="published_time" property="article:published_time " content={publishDateUtc}/>
+            <meta name="modified_time" property="article:modified_time" content={publishDateUtc}/>
             <meta property="article:tag" content='software development'/>
             <meta name="image" property="og:image" content={`${userConfig.siteUrl}${imgSrc}`}/>
           </Helmet>
