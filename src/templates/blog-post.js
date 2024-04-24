@@ -1,5 +1,5 @@
 import {graphql} from 'gatsby';
-import Helmet from 'react-helmet';
+
 import get from 'lodash/get';
 import React from 'react';
 
@@ -15,7 +15,7 @@ import Container from '../components/Container';
 import FeaturedImage from '../components/FeaturedImage';
 import PageNav from '../components/PageNav';
 import Share from '../components/Share';
-import imgSrc from '../main.png';
+import BlogHelmet from '../components/BlogHelmet';
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -28,27 +28,11 @@ class BlogPostTemplate extends React.Component {
       url = window.location.href;
     }
     const publishDate = new Date(post.frontmatter.date);
-    const publishDateUtc = publishDate.toUTCString();
     const pageTitle = `${post.frontmatter.title} | ${author}`;
     return (
       <Layout>
         <Container>
-          <Helmet
-            title={pageTitle}
-            htmlAttributes={{ lang: 'en' }}
-          >
-            <meta name="title" property="og:title" content={pageTitle}/>
-            <meta property="og:type" content="article" />
-            <meta
-              name="description" property="og:description"
-              content={post.excerpt}
-            />
-            <meta name="author" property="article:author" content={userConfig.author}/>
-            <meta name="published_time" property="article:published_time " content={publishDateUtc}/>
-            <meta name="modified_time" property="article:modified_time" content={publishDateUtc}/>
-            <meta property="article:tag" content='software development'/>
-            <meta name="image" property="og:image" content={`${userConfig.siteUrl}${imgSrc}`}/>
-          </Helmet>
+          <BlogHelmet pageTitle={pageTitle} description={post.excerpt} publishDate={publishDate} slug={post.fields.slug}/>
           <Card>
             <ArticleHeader>
               {post.frontmatter.featuredImage && (
@@ -101,6 +85,9 @@ export const pageQuery = graphql`
       id
       html
       excerpt
+      fields {
+        slug
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
