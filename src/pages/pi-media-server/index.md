@@ -11,11 +11,13 @@ Everyone loves Raspberry Pi, they are cheap and flexible mini linux boxes. Here 
 
 # How it works
 
-![The test pyramid](./pi-sharing.png)
+![Media sharing with a Raspberry pi](./pi-sharing.png)
 
-I use a our Raspberry Pi with [ReadyMedia/miniDLNA](https://sourceforge.net/projects/minidlna/) to serve files to all my smart devices. Most modern smart TVs support DLNA, so the beauty of this is that no additional app is needed, you can just use the native video player on the TV (both my TVs are older LG smart TVs, and this works excellently).
+I use a Raspberry Pi with [ReadyMedia/miniDLNA](https://sourceforge.net/projects/minidlna/) to serve files to all the smart devices in my home. Most modern smart TVs support DLNA, so the beauty of this is that no additional app is needed, you can just use the native video player on the TV (both my TVs are older LG smart TVs, and this works excellently).
 
-FYI: miniDLNA has had a name change, which I believe down to the DLNA name being owned by a [non profit organisation](https://www.dlna.org/)
+It serves the files over the local network (ethernet in my case, but it works great with wifi also).
+
+FYI: miniDLNA has had a name change to 'readyMedia', which I believe down to the DLNA name being owned by a [non profit organisation](https://www.dlna.org/). I use miniDLNA in most of the instructions, as that is what the package & service are still called!
 
 
 ## The benefits 
@@ -24,7 +26,8 @@ ReadyMedia/miniDLNA is
 - Small
 - Fast
 - Configurable
-- Free
+- Free!
+
 Also it does not transcode or otherwise mess with your video files.
 
 The above means I can have it running all the time on my pi and not worry about electricity consumption. It also doesn't access the disk unnecessarily, so if it is a spinning disk that means less wear and tear.
@@ -38,7 +41,7 @@ Before you start, I am assuming you have
 - A raspberry pi, already with an OS installed, and connected to your wifi or ethernet network (if not, there is [a guide here](https://www.raspberrypi.com/documentation/computers/getting-started.html))
 - Some sort of external storage to plug into it
 - I recommend you set up ssh access to execute all these commands remotely. This is pretty much essential to run a Pi headless (with no keyboard or monitor attached), which is how most people would want to run their media server
-    - [here is how to do that](https://www.onlogic.com/eu/blog/how-to-ssh-into-raspberry-pi/)
+    - [Here is how to do that](https://www.onlogic.com/eu/blog/how-to-ssh-into-raspberry-pi/)
     - if you need a SSH client, I recommend [Termius](https://play.google.com/store/apps/details?id=com.server.auditor.ssh.client&hl=en&pli=1) for Android, putty for PC, or just [the built in client on Mac](https://www.servermania.com/kb/articles/ssh-mac)
 
 
