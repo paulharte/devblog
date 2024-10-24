@@ -154,3 +154,8 @@ The options outlined above are not the only options available to you to deploy t
 ## License
 
 Licensed under MIT License. See [LICENSE.md](LICENSE.md) for more.
+
+
+## Emoji guide
+
+[https://www.gatsbyjs.com/plugins/gatsby-remark-emojis/](https://www.gatsbyjs.com/plugins/gatsby-remark-emojis/)
