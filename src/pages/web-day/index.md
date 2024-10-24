@@ -1,12 +1,12 @@
 ---
-title: Reflections on AWS cloud day, AI and what it means for software
+title: AWS cloud day and why AI is just too easy
 date: "2024-10-24"
 featuredImage: './badge.jpg'
 ---
 
 The big topic from AWS Cloud Day Dublin was pretty clear: AI. AWS is making big moves in making it easy and seamless to add LLM functionality backed by an à la carte menu of models to your app. It was so dominant in terms of the topics that it felt like a AI conference at times (mixed in with the usual sales pitches 😃).
 
-Here are my hot takes🔥 on both the hype and substance of AI on display.
+Here are my hot takes 🔥 on both the hype and substance of AI.
 
 <!-- end -->
 
@@ -20,7 +20,7 @@ The technical implementation to implement AWS bedrock is literally a API call, a
 
 ## How is this going to impact the industry
 
-When the barriers to adding LLM based features drop to almost nothing, it makes for a very competitive environment for 'AI' companies. It means that incumbents in different software sectors need not fear being 'left behind', as the pivot to add functionality for any reasonably modern software company is minimal. When you combine this fact with the fact that lots of VC capital has been pouring into anything with .ai in the web address means we are likely to see a lot of bankruptcies in this sphere when the VCs get bored of hype.
+When the barriers to adding LLM based features drop to almost nothing, it makes for a very competitive environment for 'AI' companies. It means that incumbents in different software sectors need not fear being 'left behind', as the pivot to add functionality for any reasonably modern software company is minimal. When you combine this fact with the fact that lots of VC capital has been pouring into anything with .ai in the web address means we are likely to see a lot of bankruptcies in this sphere when the VCs get bored of the hype.
 
 On an individual level, the idea bandied about that 'prompt engineering' will be a key skill in the future is massively overblown, as a competent person can learn those skills in an afternoon, without even knowing how to code.
 
